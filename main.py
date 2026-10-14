@@ -19,6 +19,21 @@ def add_post(req: AddRequest):
     return {"a": req.a, "b": req.b, "result": req.a + req.b}
 
 
+class SubtractRequest(BaseModel):
+    a: float
+    b: float
+
+
+@app.get("/subtract")
+def subtract_get(a: float, b: float):
+    return {"a": a, "b": b, "result": a - b}
+
+
+@app.post("/subtract")
+def subtract_post(req: SubtractRequest):
+    return {"a": req.a, "b": req.b, "result": req.a - req.b}
+
+
 if __name__ == "__main__":
     import uvicorn
 
