@@ -34,6 +34,21 @@ def subtract_post(req: SubtractRequest):
     return {"a": req.a, "b": req.b, "result": req.a - req.b}
 
 
+class MultiplyRequest(BaseModel):
+    a: float
+    b: float
+
+
+@app.get("/multiply")
+def multiply_get(a: float, b: float):
+    return {"a": a, "b": b, "result": a * b}
+
+
+@app.post("/multiply")
+def multiply_post(req: MultiplyRequest):
+    return {"a": req.a, "b": req.b, "result": req.a * req.b}
+
+
 if __name__ == "__main__":
     import uvicorn
 
